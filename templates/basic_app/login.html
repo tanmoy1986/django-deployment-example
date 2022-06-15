@@ -1,0 +1,24 @@
+{% extends 'basic_app/base.html' %}
+{% block body_block %}
+
+<div class="container-fluid bg-light text-dark p-5">
+  <div class="container bg-light p-5">
+    <h1 class="display-4 fw-bold">Welcome to Tanmoy's Creativity</h1>
+    <hr>
+      <p>Please Login</p>
+      <form action="{% url 'basic_app:user_login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" placeholder="Enter Username">
+
+        <label for="password">Password</label>
+        <input type="password" name="password">
+
+        <input type="submit" name="" value="Login">
+      </form>
+      <p>Don't have account. Don't worry! Create it now</p>
+      <a href="{% url 'basic_app:register' %}" class="btn btn-primary">Signup</a>
+  </div>
+</div>
+
+{% endblock %}
